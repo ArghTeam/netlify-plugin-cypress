@@ -135,11 +135,11 @@ const processCypressResults = (results, buildUtils) => {
 }
 
 async function postBuild({ fullPublishFolder, record, spec, group, tag, buildUtils }) {
-  const port = 8080
+  const port = 3000
   const server = serveFolder(fullPublishFolder, port)
   debug('local server listening on port %d', port)
 
-  const baseUrl = process.env.DEPLOY_URL //`http://localhost:${port}`
+  const baseUrl = `http://localhost:${port}`
 
   const results = await runCypressTests(baseUrl, record, spec, group, tag)
 
